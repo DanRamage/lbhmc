@@ -269,7 +269,11 @@ def main():
     logger.info('Log file closing.')
 
   except Exception as e:
-    logger.exception(e)
+    if logger is not None:
+      logger.exception(e)
+    else:
+      import traceback
+      traceback.print_exc(e)
 
 if __name__ == '__main__':
   main()
