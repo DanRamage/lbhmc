@@ -265,6 +265,7 @@ def main():
         logger.exception(e)
 
       input_queue.put('STOP')
+      db_record_saver.join()
       db.disconnect()
     logger.info('Log file closing.')
 
