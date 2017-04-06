@@ -227,8 +227,7 @@ def main():
         db_record_saver.start()
 
         for station_num in range(station_count):
-          if (logger):
-            logger.info("Processing: %s" % (station_num+1))
+          logger.info("Processing: %s" % (station_num+1))
           section = "station_%d" % (station_num+1)
           try:
             json_obs_file = configFile.get(section, "obs_mapping_file")
@@ -265,6 +264,7 @@ def main():
         logger.exception(e)
 
       input_queue.put('STOP')
+      #Wait here until the worker process finishes up.
       db_record_saver.join()
       db.disconnect()
     logger.info('Log file closing.')
