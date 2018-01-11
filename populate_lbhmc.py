@@ -78,7 +78,7 @@ def get_data(**kwargs):
       'startDate': kwargs['start_time'],
       'endDate': kwargs['end_time'],
       'displayType': 'StationSensor',
-      'predefFlag': 'true',
+      'predefFlag': 'false',
       'enddateFlag': 'false',
       'now': kwargs['now_time']
     }
